@@ -61,6 +61,21 @@ class Article < Content
 
   setting :password,                   :string, ''
 
+  def merge(id)
+    article = Article.find_by_id(id)
+    
+    if(article && self != article)
+      self.body += article.body
+      self.save
+      article.destroy
+      
+      return true
+    else
+      return false
+    end
+    
+  end
+
   def initialize(*args)
     super
     # Yes, this is weird - PDC
@@ -95,6 +110,7 @@ class Article < Content
   include Article::States
 
   class << self
+
     def last_draft(article_id)
       article = Article.find(article_id)
       while article.has_child?
