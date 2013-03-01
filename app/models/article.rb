@@ -65,6 +65,10 @@ class Article < Content
     article = Article.find_by_id(id)
     
     if(article && self != article)
+      Comment.find_all_by_article_id(id).each do |comment|
+        comment.article_id = self.id
+        comment.save!
+      end
       self.body += article.body
       self.save
       article.destroy

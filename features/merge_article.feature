@@ -6,18 +6,18 @@ Feature: Merge Articles
   Background:
     Given the blog is set up
     And the following articles exist:
-      | title     | author   | body   | id   |
-      | Article 1 | Author 1 | Body 1 | 1    |
-      | Article 2 | Author 2 | Body 2 | 2    |
+      | title     | author   | body   |
+      | Article 1 | Author 1 | Body 1 |
+      | Article 2 | Author 2 | Body 2 |
     And the following users exist:
       | login     | name           | password  | email               | profile_id |
       | Admin     | Blog Admin     | Admin     | Admin@email.com     | 1          |
       | Non-Admin | Blog Publisher | Non-Admin | Non-Admin@email.com | 2          |
-#    And the following comments exist:
-#      | title     | article_id | author      | body |
-#      | Comment 1 | 1          | Commenter 1 | cb1  |
-#      | Comment 2 | 2          | Commenter 2 | cb2  |
-#      | Comment 3 | 3          | Commenter 3 | cb3  |
+    And the following comments exist:
+      | title     | article_id | author      | body |
+      | Comment 1 | 1          | Commenter 1 | cb1  |
+      | Comment 2 | 2          | Commenter 2 | cb2  |
+      | Comment 3 | 2          | Commenter 3 | cb3  |
   
   Scenario: Admins can merge articles
     Given I am logged into the admin panel as "Admin"
@@ -40,9 +40,10 @@ Feature: Merge Articles
 #    Given I am logged into the admin panel as "Admin"
 #    And I am on the edit article page for "Article 1"
 #    When I merge the article with "Article 2"
+#    #And I am on the preview article page for "Article 1"
 #    Then I should see "Author 1"
 #    And I should not see "Author 2"
-#
+
 #  Scenario: the merged article should keep the original comments
 #    Given I am logged into the admin panel as "Admin"
 #    And I am on the edit article page for "Article 1"
@@ -50,10 +51,11 @@ Feature: Merge Articles
 #    Then I should see "Comment 1"
 #    And I should see "Comment 2"
 #    And I should not see "Comment 3"
-#
-#  Scenario: the merged article should have the title of one of the original articles
+
+# Scenario: the merged article should have the title of one of the original articles
 #    Given I am logged into the admin panel as "Admin"
 #    And I am on the edit article page for "Article 1"
 #    When I merge the article with "Article 2"
+#    #And I am on the preview article page for "Article 1"
 #    Then I should see "Article 1"
 #    And I should not see "Article 2"
