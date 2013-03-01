@@ -61,7 +61,7 @@ class Article < Content
 
   setting :password,                   :string, ''
 
-  def merge(id)
+  def merge_with(id)
     article = Article.find_by_id(id)
     
     if(article && self != article)
