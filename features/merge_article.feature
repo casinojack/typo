@@ -13,11 +13,11 @@ Feature: Merge Articles
       | login     | name           | password  | email               | profile_id |
       | Admin     | Blog Admin     | Admin     | Admin@email.com     | 1          |
       | Non-Admin | Blog Publisher | Non-Admin | Non-Admin@email.com | 2          |
-    And the following comments exist:
-      | title     | article_id | author      | body |
-      | Comment 1 | 1          | Commenter 1 | cb1  |
-      | Comment 2 | 2          | Commenter 2 | cb2  |
-      | Comment 3 | 2          | Commenter 3 | cb3  |
+#    And the following comments exist:
+#      | title     | article_id | author      | body |
+#      | Comment 1 | 1          | Commenter 1 | cb1  |
+#      | Comment 2 | 2          | Commenter 2 | cb2  |
+#      | Comment 3 | 2          | Commenter 3 | cb3  |
   
   Scenario: Admins can merge articles
     Given I am logged into the admin panel as "Admin"
